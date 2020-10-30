@@ -40,3 +40,9 @@ template <typename T> std::vector<T> initNVector(int n, T val) {
   std::fill(vec.begin(), vec.end(), val);
   return vec;
 }
+
+template <typename T> T getDeviceInfo(cl::Device device, cl_device_info info) {
+  T out;
+  device.getInfo(info, &out);
+  return out;
+}
