@@ -18,19 +18,19 @@ cl::Device getFirstDevice() {
   return getFirstDevice(getFirstPlatform());
 }
 
-void addFileToSources(cl::Program::Sources sources, std::string fileName) {
+void addFileToSources(cl::Program::Sources *sources, std::string fileName) {
   std::ifstream kernelcode;
   kernelcode.open(fileName);
-  std::string code((std::istreambuf_iterator<char>(kernelcode)), (std::istreambuf_iterator<char>()));
+  std::string *code = new std::string((std::istreambuf_iterator<char>(kernelcode)), (std::istreambuf_iterator<char>()));
   kernelcode.close();
 
-  sources.push_back({code.c_str(), code.length()});
+  sources->push_back({code->c_str(), code->length()});
 }
 
 cl::Program::Sources getSourcesFromFile(std::string fileName) {
   // initialize and push code into sources
   cl::Program::Sources sources;
-  addFileToSources(sources, fileName);
+  addFileToSources(&sources, fileName);
 
   return sources;
 }
