@@ -6,7 +6,7 @@ clhelper is a helper library for OpenCL which aims to help you write less code
 ```cpp
 #include <CL/cl.hpp>
 #include <iostream>
-#include "clhelper.cpp"
+#include "clhelper.h"
 
 int main() {
   //getFirstDevice is a function from clhelper
@@ -29,7 +29,7 @@ include_directories(${OpenCL_INCLUDE_DIRS})
 
 # include clhelper
 add_subdirectory(clhelper)
-include_directories(clhelper/src)
+include_directories(clhelper/include)
 
 add_executable(${PROJECT_NAME} src/main.cpp)
 
