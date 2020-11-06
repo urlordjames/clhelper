@@ -9,4 +9,5 @@ link_directories(${OpenCL_LIBRARY})
 
 add_library(${PROJECT_NAME} STATIC
   src/clhelper.cpp
+  include/clhelper.h
 )
